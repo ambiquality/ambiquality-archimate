@@ -74,7 +74,7 @@ jež samo vystupuje jako konzument veřejného čtecího API.</documentation>
       <element xsi:type="archimate:BusinessProcess" name="Vyhledávání entit" id="id-d2f03c33185d4f6b8cf8e240007dc19a"/>
     </folder>
     <folder name="Archiv" id="id-9ea82ad489a340cb9ec73731791e5922">
-      <element xsi:type="archimate:BusinessService" name="Archiv měřených dat" id="id-c96a7109d562453588626407cb516e12"/>
+      <element xsi:type="archimate:BusinessService" name="Poskytování archivu měření" id="id-c96a7109d562453588626407cb516e12"/>
       <element xsi:type="archimate:BusinessProcess" name="Stažení datového archivu" id="id-93bac93ec1e34322945939923c7e096d"/>
       <element xsi:type="archimate:BusinessProcess" name="Vymezení podmnožiny archivu" id="id-48e00f4d0b574817ad54e23f4aac441e"/>
       <element xsi:type="archimate:BusinessObject" name="Archiv měření" id="id-fb41f9d0bc614c8c87ad6caf00fdd356"/>
@@ -111,6 +111,7 @@ jež samo vystupuje jako konzument veřejného čtecího API.</documentation>
       <element xsi:type="archimate:ApplicationService" name="Autentizace" id="id-a16f4493b67d4035bf7b298d8147e583"/>
       <element xsi:type="archimate:ApplicationComponent" name="Autentizační modul" id="id-0c9beebc6ee14e3cb70b5f64b3a23f8e"/>
       <element xsi:type="archimate:DataObject" name="Přihlašovací údaje" id="id-9b56185a002b454b8a82793591100997"/>
+      <element xsi:type="archimate:DataObject" name="Token relace" id="id-2fb7093a4fe64bf792c49203e6940e38"/>
     </folder>
     <folder name="Evidence" id="id-52d1b702daa742eb9a9d3f9a4870ecd9">
       <element xsi:type="archimate:ApplicationService" name="Správa evidence" id="id-962108361f7443c69ad1a5f68605f6d3"/>
@@ -131,6 +132,8 @@ jež samo vystupuje jako konzument veřejného čtecího API.</documentation>
       <element xsi:type="archimate:ApplicationFunction" name="Stránkování výsledků" id="id-3004bfbdbd5f44cbbbc72e6c11cddc12"/>
       <element xsi:type="archimate:ApplicationService" name="Poskytování specifikace API" id="id-6bcf1347abb54967b87c08a1ed9be3e7"/>
       <element xsi:type="archimate:DataObject" name="Specifikace API" id="id-f86c70cdbe2549758a374dd671f8dad6"/>
+      <element xsi:type="archimate:DataObject" name="Parametry dotazu" id="id-4d4fd6a12cf8408aa37700db86638cf2"/>
+      <element xsi:type="archimate:DataObject" name="Stránkovaná odpověď" id="id-f960b34742494f5d91324a580783a30e"/>
     </folder>
     <folder name="Archiv" id="id-eb3af0cb81d047ddaf23d7c4bbb36a45">
       <element xsi:type="archimate:ApplicationService" name="Správa archivu" id="id-01490acd6d2e4f76b8729e92fa3e34ca"/>
@@ -255,7 +258,6 @@ jež samo vystupuje jako konzument veřejného čtecího API.</documentation>
     <element xsi:type="archimate:AccessRelationship" name="čte/zapisuje" id="id-e1e758d280f044b3aa6cb1f0e98dd6de" source="id-d53126de83174dfabfa27f6914c5ea43" target="id-b099651b36b3413b8843577e8fe756ee" accessType="3"/>
     <element xsi:type="archimate:AccessRelationship" name="čte" id="id-bb4016bedf554eb192fb31129e03d2a0" source="id-7d9fff74da7f463eaf32d872fdd64f30" target="id-728c755a0b0848159021ecd10c77bedf" accessType="1"/>
     <element xsi:type="archimate:AccessRelationship" name="zapisuje" id="id-a0868a5efde54b95b37e714e14de1278" source="id-7d9fff74da7f463eaf32d872fdd64f30" target="id-c77b326030e24a1d87b6c1334c7e1d67"/>
-    <element xsi:type="archimate:RealizationRelationship" id="id-e45f3f9af97146af819310af81955e11" source="id-547fd1c3273e485f84e42fe8f5790af0" target="id-c77b326030e24a1d87b6c1334c7e1d67"/>
     <element xsi:type="archimate:RealizationRelationship" id="id-2c7704e5db4746d5bd37dfdedc10f5cc" source="id-c0b2af95a4b14378a5e72427a4d18770" target="id-728c755a0b0848159021ecd10c77bedf"/>
     <element xsi:type="archimate:AccessRelationship" name="čte" id="id-3a573c1de8a14c16a75cbebef0f18b55" source="id-4c069b0b72ab417eb7f259f0c7f3e6c3" target="id-c0b2af95a4b14378a5e72427a4d18770" accessType="1"/>
     <element xsi:type="archimate:AccessRelationship" name="zapisuje" id="id-e69e71957db4458aa6eaf90b6062448d" source="id-4c069b0b72ab417eb7f259f0c7f3e6c3" target="id-547fd1c3273e485f84e42fe8f5790af0"/>
@@ -310,6 +312,13 @@ jež samo vystupuje jako konzument veřejného čtecího API.</documentation>
     <element xsi:type="archimate:AssociationRelationship" name="náleží" id="id-05dc5d6286434b8582b3464c8eb05d82" source="id-6a786e3097be408782df84accc473898" target="id-f54170e0ac6f478680b84b82a8ca7238" directed="true"/>
     <element xsi:type="archimate:CompositionRelationship" id="id-77bb3dcd7d614cc29b2f1d335965c6c7" source="id-868db14001f54323aa05035482e4b5d9" target="id-c77b326030e24a1d87b6c1334c7e1d67"/>
     <element xsi:type="archimate:AssociationRelationship" id="id-f3bb5678b04e418b894e2f9433b70fab" source="id-868db14001f54323aa05035482e4b5d9" target="id-8128bb3b11414b4b8cdd11ba0215e518"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-788a6fd4aaeb4c359f9750368e318dc8" source="id-2fb7093a4fe64bf792c49203e6940e38" target="id-84e22110704544dca4176bf9f0b60324"/>
+    <element xsi:type="archimate:AccessRelationship" name="čte/zapisuje" id="id-bde964b8c1f34d66a43e253955d53122" source="id-0c9beebc6ee14e3cb70b5f64b3a23f8e" target="id-2fb7093a4fe64bf792c49203e6940e38" accessType="3"/>
+    <element xsi:type="archimate:AccessRelationship" name="čte" id="id-2f31bc4625c04f0199fb535d2c96bdb1" source="id-5a5f1b652fbf449a9d1d29096733ee70" target="id-4d4fd6a12cf8408aa37700db86638cf2" accessType="1"/>
+    <element xsi:type="archimate:AccessRelationship" name="čte" id="id-ed894e3c2ebc4dadbb495a46b39daabd" source="id-3004bfbdbd5f44cbbbc72e6c11cddc12" target="id-4d4fd6a12cf8408aa37700db86638cf2" accessType="1"/>
+    <element xsi:type="archimate:AccessRelationship" name="zapisuje" id="id-cd5b102c572946beaca83a2f95d9d27d" source="id-3004bfbdbd5f44cbbbc72e6c11cddc12" target="id-f960b34742494f5d91324a580783a30e"/>
+    <element xsi:type="archimate:AccessRelationship" name="zapisuje" id="id-b344cc1b90e9423aad7777fda6a32e81" source="id-5a5f1b652fbf449a9d1d29096733ee70" target="id-f960b34742494f5d91324a580783a30e"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-d5760aed8d234720a44251ecae9bdcd7" source="id-547fd1c3273e485f84e42fe8f5790af0" target="id-868db14001f54323aa05035482e4b5d9"/>
   </folder>
   <folder name="Views" id="id-89a02234429c407dbc3a8deae555a8da" type="diagrams">
     <folder name="Business" id="id-ad78a60108e44ca1b62c1ff982d93a9a" type="diagrams">
@@ -489,6 +498,8 @@ jež samo vystupuje jako konzument veřejného čtecího API.</documentation>
       <child xsi:type="archimate:DiagramObject" id="id-095451290a5c427e875ebc132275ab18" targetConnections="id-ac0a801de59a4516987b601816fa624a" archimateElement="id-5a5f1b652fbf449a9d1d29096733ee70" type="1">
         <bounds x="2280" y="702" width="120" height="55"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-c1ee34f4bfc346ffaeb8df66079d0a8d" source="id-095451290a5c427e875ebc132275ab18" target="id-8c369a733b0143c68f78de6204141891" archimateRelationship="id-722133d254524a16bb322ea6d2d1ad33"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-ec21ae4873ad4989b96dbe3fcfc33261" source="id-095451290a5c427e875ebc132275ab18" target="id-1a479b716fef4d598f4b3723845e9556" archimateRelationship="id-2f31bc4625c04f0199fb535d2c96bdb1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-8eff43fb9718457b8577d630fb0ee0e8" source="id-095451290a5c427e875ebc132275ab18" target="id-5ed19086aea1497dbdbe360404b609d8" archimateRelationship="id-b344cc1b90e9423aad7777fda6a32e81"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-647086f1516f46209ee0d14fda1e0d27" targetConnections="id-dbc3c752f16649988cf0e287f6e80908" archimateElement="id-01490acd6d2e4f76b8729e92fa3e34ca" type="1">
         <bounds x="2077" y="744" width="120" height="55"/>
@@ -571,6 +582,7 @@ jež samo vystupuje jako konzument veřejného čtecího API.</documentation>
           <sourceConnection xsi:type="archimate:Connection" id="id-084a58a9b4574eb79744384c5bc25394" source="id-81fa09b2e9ba45f7a5c1e2dee15968d5" target="id-130d0895a796489691a04f57b090fa09" archimateRelationship="id-0d3e057e3fd4481b87b082a49b12ee01">
             <bendpoint startX="-468" startY="-2" endY="334"/>
           </sourceConnection>
+          <sourceConnection xsi:type="archimate:Connection" id="id-a63aaa26dfaf492cb9b51bd7226c0c68" source="id-81fa09b2e9ba45f7a5c1e2dee15968d5" target="id-c03a5f5605284362ae625353396f9e9a" archimateRelationship="id-bde964b8c1f34d66a43e253955d53122"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="id-19aafa5e589b4b7a8432c32c4a7da690" targetConnections="id-2ad011c4eb04403493bae93023dd4cfe" archimateElement="id-695ca1ba08cb4365b2b8041be8a5a8b4">
           <bounds x="528" y="48" width="120" height="55"/>
@@ -645,10 +657,10 @@ jež samo vystupuje jako konzument veřejného čtecího API.</documentation>
         <bounds x="1488" y="444" width="120" height="55"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-5bcb253c0835472b8a3955194c2d8e32" targetConnections="id-061eb11929cd4697a042178cbe8ce62b id-ed41d8d40b824b4dad33063398920b9b id-fc0891bb7e2e406d90388fb122e1e260" archimateElement="id-547fd1c3273e485f84e42fe8f5790af0" type="1">
-        <bounds x="1558" y="1104" width="120" height="55"/>
-        <sourceConnection xsi:type="archimate:Connection" id="id-583224e641644023a0c333c26f4ec4b0" source="id-5bcb253c0835472b8a3955194c2d8e32" target="id-f8834c9a43d54e87919920e4d584c24b" archimateRelationship="id-e45f3f9af97146af819310af81955e11"/>
+        <bounds x="1536" y="1104" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-5a558ea61cc04dbbadf65225efe831a5" source="id-5bcb253c0835472b8a3955194c2d8e32" target="id-a72acc8ef3da44e3a837af1ef0ed53ca" archimateRelationship="id-d5760aed8d234720a44251ecae9bdcd7"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-f8834c9a43d54e87919920e4d584c24b" targetConnections="id-0339a567041c4fcab51c94eb5e0adbd0 id-583224e641644023a0c333c26f4ec4b0 id-bb8b1cd9e45c4cf0a701a45092833dd0" archimateElement="id-c77b326030e24a1d87b6c1334c7e1d67" type="1">
+      <child xsi:type="archimate:DiagramObject" id="id-f8834c9a43d54e87919920e4d584c24b" targetConnections="id-0339a567041c4fcab51c94eb5e0adbd0 id-bb8b1cd9e45c4cf0a701a45092833dd0" archimateElement="id-c77b326030e24a1d87b6c1334c7e1d67" type="1">
         <bounds x="1512" y="552" width="120" height="55"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-a94c7547a82f4d5cba7d2575ed53238c" targetConnections="id-886ed2b3fb2f47faaf1a5c023db59cfc" archimateElement="id-c0b2af95a4b14378a5e72427a4d18770" type="1">
@@ -680,6 +692,8 @@ jež samo vystupuje jako konzument veřejného čtecího API.</documentation>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-a97a77d91b3f43b7b8ea6bc13c8d9b01" targetConnections="id-5aeaf6630f984042ad6fc9017eb2e9f1" archimateElement="id-3004bfbdbd5f44cbbbc72e6c11cddc12">
         <bounds x="1548" y="1560" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-261b99774af94ef7aec8dbff747f8f87" source="id-a97a77d91b3f43b7b8ea6bc13c8d9b01" target="id-1a479b716fef4d598f4b3723845e9556" archimateRelationship="id-ed894e3c2ebc4dadbb495a46b39daabd"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-1e2dc5fb9e1841d4a729f5c06516dfc0" source="id-a97a77d91b3f43b7b8ea6bc13c8d9b01" target="id-5ed19086aea1497dbdbe360404b609d8" archimateRelationship="id-cd5b102c572946beaca83a2f95d9d27d"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-245b8f4820814e109baf5b0c618e006a" targetConnections="id-a5b9216006b14bc1851529e48f1b9937" archimateElement="id-6bcf1347abb54967b87c08a1ed9be3e7">
         <bounds x="2436" y="690" width="120" height="55"/>
@@ -708,13 +722,13 @@ jež samo vystupuje jako konzument veřejného čtecího API.</documentation>
         <bounds x="695" y="798" width="120" height="55"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-31668e429a784f5fb0a4f6bc809c5557" source="id-a4149de17a5e4fb0b57642f7f06b8fa6" target="id-a72acc8ef3da44e3a837af1ef0ed53ca" archimateRelationship="id-0ab01f827a824e5a89516c2374a00c0a"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-a72acc8ef3da44e3a837af1ef0ed53ca" targetConnections="id-4ced32db0d9149a0b48926990a92fc9c id-fc63c12cb7c847bebf127d179f724da0 id-31668e429a784f5fb0a4f6bc809c5557 id-79d4e23a3c28473e9119c805589c411b" archimateElement="id-868db14001f54323aa05035482e4b5d9" type="1">
+      <child xsi:type="archimate:DiagramObject" id="id-a72acc8ef3da44e3a837af1ef0ed53ca" targetConnections="id-4ced32db0d9149a0b48926990a92fc9c id-fc63c12cb7c847bebf127d179f724da0 id-31668e429a784f5fb0a4f6bc809c5557 id-79d4e23a3c28473e9119c805589c411b id-5a558ea61cc04dbbadf65225efe831a5" archimateElement="id-868db14001f54323aa05035482e4b5d9" type="1">
         <bounds x="1691" y="888" width="120" height="55"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-eefb52c6be5248c3a49446a011e588e0" source="id-a72acc8ef3da44e3a837af1ef0ed53ca" target="id-8d84bf4a674d45fbbfbe3f5c2b9aaccd" archimateRelationship="id-6075008fc4a743509cf33664c4a190d1"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-bb8b1cd9e45c4cf0a701a45092833dd0" source="id-a72acc8ef3da44e3a837af1ef0ed53ca" target="id-f8834c9a43d54e87919920e4d584c24b" archimateRelationship="id-77bb3dcd7d614cc29b2f1d335965c6c7"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-ee41f597e61a4c5fb4518154affb5a87" source="id-a72acc8ef3da44e3a837af1ef0ed53ca" target="id-01b05f65e0914d179b7859215fae74ca" archimateRelationship="id-f3bb5678b04e418b894e2f9433b70fab"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-734e6a58731f4f5e99e5bf6dc6a2ff3e" targetConnections="id-e6eb2c51abc247cfb99228b63655d2df id-49a1337ed16040aabedb88e2a2ed90f3 id-034aa848a76b42b88514790ba8fb14a5" archimateElement="id-84e22110704544dca4176bf9f0b60324" type="1">
+      <child xsi:type="archimate:DiagramObject" id="id-734e6a58731f4f5e99e5bf6dc6a2ff3e" targetConnections="id-e6eb2c51abc247cfb99228b63655d2df id-49a1337ed16040aabedb88e2a2ed90f3 id-034aa848a76b42b88514790ba8fb14a5 id-d12c9e4e4953466b95b47daa5c8ca25e" archimateElement="id-84e22110704544dca4176bf9f0b60324" type="1">
         <bounds x="-312" y="594" width="120" height="55"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-01b05f65e0914d179b7859215fae74ca" targetConnections="id-0888388e24904d009d68b6dc840b5869 id-ee41f597e61a4c5fb4518154affb5a87" archimateElement="id-8128bb3b11414b4b8cdd11ba0215e518" type="1">
@@ -729,6 +743,16 @@ jež samo vystupuje jako konzument veřejného čtecího API.</documentation>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-0ad252fa51c648cb868dbbdd5c0b9686" targetConnections="id-a4d78cb25c91431d9433b27e03c649b7 id-f2c6b4d5bdd648878e3a6f738dc94864 id-4487726e2d584dcbad399a90d6ca9170" archimateElement="id-f54170e0ac6f478680b84b82a8ca7238" type="1">
         <bounds x="1908" y="936" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-c03a5f5605284362ae625353396f9e9a" targetConnections="id-a63aaa26dfaf492cb9b51bd7226c0c68" archimateElement="id-2fb7093a4fe64bf792c49203e6940e38" type="1">
+        <bounds x="-324" y="1380" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-d12c9e4e4953466b95b47daa5c8ca25e" source="id-c03a5f5605284362ae625353396f9e9a" target="id-734e6a58731f4f5e99e5bf6dc6a2ff3e" archimateRelationship="id-788a6fd4aaeb4c359f9750368e318dc8"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-1a479b716fef4d598f4b3723845e9556" targetConnections="id-ec21ae4873ad4989b96dbe3fcfc33261 id-261b99774af94ef7aec8dbff747f8f87" archimateElement="id-4d4fd6a12cf8408aa37700db86638cf2" type="1">
+        <bounds x="2218" y="1536" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-5ed19086aea1497dbdbe360404b609d8" targetConnections="id-1e2dc5fb9e1841d4a729f5c06516dfc0 id-8eff43fb9718457b8577d630fb0ee0e8" archimateElement="id-f960b34742494f5d91324a580783a30e" type="1">
+        <bounds x="2376" y="1302" width="120" height="55"/>
       </child>
     </element>
   </folder>
